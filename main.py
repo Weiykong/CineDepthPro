@@ -134,6 +134,23 @@ def run_fast_lsdr(burst_folder):
 
         cv2.imshow(window_name, display_img)
         
+        # Inside your main loop...
+        if key == ord('r'):
+            print("Running Multi-View Refinement... using secondary frame for edge truth.")
+            from refiner import DepthRefiner
+            refiner = DepthRefiner()
+            
+            # We use images[0] and images[1] from your burst folder
+            second_frame = cv2.imread(files[1]) 
+            
+            # Update the global depth_map with the refined version
+            depth_map = refiner.refine(hero_frame, second_frame, depth_map)
+            
+            # Update preview versions too
+            depth_preview = cv2.resize(depth_map, (preview_w, preview_h))
+            needs_update = True
+            print("Refinement Complete. Edges should now be mathematically sharper.")
+        
         key = cv2.waitKey(30) & 0xFF
         if key == ord('s'):
             print("Processing 4K Final Render... please wait...")
