@@ -42,3 +42,19 @@ class DepthRefiner:
         refined_map = cv2.bilateralFilter(refined_map, 9, 75, 75)
         
         return refined_map
+    
+    def refined_blend(ai_map, geo_map, hero_img):
+        # 1. Use a Guided Filter to smooth the noisy geometric map
+        # This uses the original photo to 'guide' the depth, ensuring 
+        # the noise doesn't cross over sharp visual edges.
+        geo_smooth = cv2.ximgproc.guidedFilter(guide=hero_img, src=geo_map, radius=10, eps=0.01)
+        
+        # 2. Create a 'Confidence Mask'
+        # We only trust the geometric map where the AI and Geo maps 
+        # roughly agree. If they differ by too much, it's probably noise.
+        diff = cv2.absdiff(ai_map, geo_smooth)
+        confidence = np.where(diff < 30, 1.0, 0.0).astype(np.float32)
+        
+        # 3. Final Blend: Trust AI mostly, use Geo to 'tighten' the edges
+        final = (ai_map * (1 - 0.3 * confidence) + geo_smooth * (0.3 * confidence)).astype(np.uint8)
+        return final

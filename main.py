@@ -112,6 +112,9 @@ def run_fast_lsdr(burst_folder):
     hero_preview = cv2.resize(hero_frame, (preview_w, preview_h))
     depth_preview = cv2.resize(depth_map, (preview_w, preview_h))
 
+    # Save depth map for debugging (optional)
+    cv2.imwrite("depth_map_debug.jpg", depth_map)
+    
     # 4. UI Setup
     window_name = "Fast LSDR Preview (Click to Focus)"
     cv2.namedWindow(window_name)
@@ -133,7 +136,7 @@ def run_fast_lsdr(burst_folder):
             needs_update = False
 
         cv2.imshow(window_name, display_img)
-        
+        key = cv2.waitKey(30) & 0xFF
         # Inside your main loop...
         if key == ord('r'):
             print("Running Multi-View Refinement... using secondary frame for edge truth.")
@@ -148,10 +151,12 @@ def run_fast_lsdr(burst_folder):
             
             # Update preview versions too
             depth_preview = cv2.resize(depth_map, (preview_w, preview_h))
+            # Save depth map for debugging (optional)
+            cv2.imwrite("depth_map_refined_debug.jpg", depth_map)
             needs_update = True
             print("Refinement Complete. Edges should now be mathematically sharper.")
         
-        key = cv2.waitKey(30) & 0xFF
+        
         if key == ord('s'):
             print("Processing 4K Final Render... please wait...")
             # Only do the heavy 4K math when saving
@@ -167,5 +172,5 @@ def run_fast_lsdr(burst_folder):
 
 if __name__ == "__main__":
     # Ensure this points to your specific folder
-    MY_BURST_PATH = "/Users/weiyuankong/Downloads/Photos-3-001 (1)"
+    MY_BURST_PATH = "/Users/weiyuankong/Projects/zero_waste_photo/sample"
     run_fast_lsdr(MY_BURST_PATH)
