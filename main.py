@@ -57,7 +57,10 @@ def run_lsdr_app(burst_folder):
         # max_bokeh=20 simulates a fast f/1.4 or f/1.8 lens
         display_img = apply_variable_blur(hero_frame, depth_map, 
                                           focus_depth=current_focus_depth, 
-                                          max_bokeh=20)
+                                          max_bokeh=20,
+                                          premium_look=True,
+                                          cats_eye_strength=0.28,
+                                          flare_strength=0.08)
 
         cv2.imshow(window_name, display_img)
         
@@ -133,7 +136,10 @@ def run_fast_lsdr(burst_folder):
             # Process on the TINY preview frame for instant feedback
             display_img = apply_variable_blur(hero_preview, depth_preview, 
                                               focus_depth=current_focus_depth, 
-                                              max_bokeh=15)
+                                              max_bokeh=15,
+                                              premium_look=True,
+                                              cats_eye_strength=0.22,
+                                              flare_strength=0.06)
             needs_update = False
 
         cv2.imshow(window_name, display_img)
@@ -162,7 +168,10 @@ def run_fast_lsdr(burst_folder):
             # Only do the heavy 4K math when saving
             final_4k = apply_variable_blur(hero_frame, depth_map, 
                                            focus_depth=current_focus_depth, 
-                                           max_bokeh=20)
+                                           max_bokeh=20,
+                                           premium_look=True,
+                                           cats_eye_strength=0.32,
+                                           flare_strength=0.10)
             cv2.imwrite(f"final_4k_focus_{current_focus_depth}.jpg", final_4k)
             print("4K Save Complete!")
         elif key == ord('q'):
