@@ -34,12 +34,16 @@ class DepthRefiner:
         edges = cv2.Canny(gray_hero, 100, 200)
         edge_mask = cv2.dilate(edges, np.ones((3,3), np.uint8), iterations=1) / 255.0
         
-        # 5. Hybrid Blend
-        # We use AI depth for smooth areas and Geometric depth for edges
-        refined_map = (ai_depth_map * (1 - edge_mask) + geo_depth * edge_mask).astype(np.uint8)
+        # 5. Instead of a simple blend, use the new 'refined_blend' logic
+        # This uses the Hero image to 'guide' the depth map
+        geo_smooth = cv2.ximgproc.guidedFilter(guide=hero_img, src=geo_depth, radius=10, eps=0.01)
         
-        # 6. Smooth the result to prevent 'jitter'
-        refined_map = cv2.bilateralFilter(refined_map, 9, 75, 75)
+        # 6. Confidence-based synthesis
+        diff = cv2.absdiff(ai_depth_map, geo_smooth)
+        confidence = np.where(diff < 30, 1.0, 0.0).astype(np.float32)
+        
+        # Blend: We keep the AI's smoothness but inject the Geo's edge truth
+        refined_map = (ai_depth_map * (1 - 0.4 * confidence) + geo_smooth * (0.4 * confidence)).astype(np.uint8)
         
         return refined_map
     

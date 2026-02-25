@@ -4,6 +4,7 @@ import numpy as np
 from depth_engine import DepthEngine
 from lens_sim import apply_variable_blur
 from evaluator import pick_hero_frame
+from refiner import DepthRefiner, refined_blend
 
 # Global variable to track the focus depth from user clicks
 current_focus_depth = 255
@@ -140,7 +141,7 @@ def run_fast_lsdr(burst_folder):
         # Inside your main loop...
         if key == ord('r'):
             print("Running Multi-View Refinement... using secondary frame for edge truth.")
-            from refiner import DepthRefiner
+
             refiner = DepthRefiner()
             
             # We use images[0] and images[1] from your burst folder
@@ -155,8 +156,7 @@ def run_fast_lsdr(burst_folder):
             cv2.imwrite("depth_map_refined_debug.jpg", depth_map)
             needs_update = True
             print("Refinement Complete. Edges should now be mathematically sharper.")
-        
-        
+            
         if key == ord('s'):
             print("Processing 4K Final Render... please wait...")
             # Only do the heavy 4K math when saving
