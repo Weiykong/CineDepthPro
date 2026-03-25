@@ -115,7 +115,7 @@ class ModelHolder:
 
 model_holder = ModelHolder()
 inference_lock = Lock()
-app = FastAPI(title="RealDepthPhoto Ultra Depth Server", version="0.1.0")
+app = FastAPI(title="CineDepth Ultra Depth Server", version="0.1.0")
 
 
 @app.on_event("startup")

@@ -14,6 +14,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "RealDepthPhotoPrototype"
+rootProject.name = "CineDepthPrototype"
 include(":app")
 

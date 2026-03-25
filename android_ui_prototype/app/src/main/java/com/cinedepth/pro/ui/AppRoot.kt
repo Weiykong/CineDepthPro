@@ -1,4 +1,4 @@
-package com.realdepthphoto.ui
+package com.cinedepth.pro.ui
 
 import android.graphics.Bitmap
 import android.net.Uri
@@ -119,9 +119,9 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.realdepthphoto.ui.blur.DepthBlurEngine
-import com.realdepthphoto.ui.blur.DepthBlurExportResult
-import com.realdepthphoto.ui.retouch.RetouchDepthRoute
+import com.cinedepth.pro.ui.blur.DepthBlurEngine
+import com.cinedepth.pro.ui.blur.DepthBlurExportResult
+import com.cinedepth.pro.ui.retouch.RetouchDepthRoute
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.math.min
@@ -277,7 +277,7 @@ private enum class DepthQualityMode(
 }
 
 @Composable
-fun RealDepthPhotoApp() {
+fun CineDepthApp() {
     var currentScreen by remember { mutableStateOf(AppScreen.Welcome.name) }
     var selectedPhotoUriString by remember { mutableStateOf<String?>(null) }
     var blurStrength by rememberSaveable { mutableStateOf(0.20f) }

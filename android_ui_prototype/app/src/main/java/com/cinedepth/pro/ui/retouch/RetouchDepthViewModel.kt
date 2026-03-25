@@ -1,4 +1,4 @@
-package com.realdepthphoto.ui.retouch
+package com.cinedepth.pro.ui.retouch
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -11,9 +11,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.realdepthphoto.ui.BlurPreviewParams
-import com.realdepthphoto.ui.blur.DepthBlurEngine
-import com.realdepthphoto.ui.blur.DepthEstimator
+import com.cinedepth.pro.ui.BlurPreviewParams
+import com.cinedepth.pro.ui.blur.DepthBlurEngine
+import com.cinedepth.pro.ui.blur.DepthEstimator
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow

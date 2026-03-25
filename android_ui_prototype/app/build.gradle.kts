@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.realdepthphoto"
+    namespace = "com.cinedepth.pro"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.realdepthphoto"
+        applicationId = "com.cinedepth.pro"
         minSdk = 33
         targetSdk = 35
         versionCode = 20

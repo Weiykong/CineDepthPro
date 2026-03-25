@@ -1,4 +1,4 @@
-package com.realdepthphoto.ui.blur
+package com.cinedepth.pro.ui.blur
 
 import org.intellij.lang.annotations.Language
 

@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:usesCleartextTraffic="true"
         android:supportsRtl="true"
-        android:theme="@style/Theme.RealDepthPhoto">
+        android:theme="@style/Theme.CineDepth">
         <activity
             android:name=".MainActivity"
             android:exported="true"

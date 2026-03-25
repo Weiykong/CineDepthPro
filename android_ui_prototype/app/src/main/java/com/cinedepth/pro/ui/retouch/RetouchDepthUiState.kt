@@ -1,4 +1,4 @@
-package com.realdepthphoto.ui.retouch
+package com.cinedepth.pro.ui.retouch
 
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color

@@ -1,4 +1,4 @@
-package com.realdepthphoto.ui.blur
+package com.cinedepth.pro.ui.blur
 
 import android.content.ContentValues
 import android.content.Context
@@ -7,7 +7,7 @@ import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
-import com.realdepthphoto.ui.BlurPreviewParams
+import com.cinedepth.pro.ui.BlurPreviewParams
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
@@ -272,26 +272,26 @@ object DepthBlurEngine {
             bokehShader.setFloatUniform("edgeExpand", params.edgeExpand)
             
             val effectRadiusScale = when (lensEffect) {
-                com.realdepthphoto.ui.LensEffect.Classic -> 0.76f
-                com.realdepthphoto.ui.LensEffect.Creamy -> 0.84f
-                com.realdepthphoto.ui.LensEffect.Bubble -> 0.68f
-                com.realdepthphoto.ui.LensEffect.Bloom -> 0.78f
-                com.realdepthphoto.ui.LensEffect.Star -> 0.62f
-                com.realdepthphoto.ui.LensEffect.Hexagon -> 0.72f
-                com.realdepthphoto.ui.LensEffect.Anamorphic -> 0.82f
+                com.cinedepth.pro.ui.LensEffect.Classic -> 0.76f
+                com.cinedepth.pro.ui.LensEffect.Creamy -> 0.84f
+                com.cinedepth.pro.ui.LensEffect.Bubble -> 0.68f
+                com.cinedepth.pro.ui.LensEffect.Bloom -> 0.78f
+                com.cinedepth.pro.ui.LensEffect.Star -> 0.62f
+                com.cinedepth.pro.ui.LensEffect.Hexagon -> 0.72f
+                com.cinedepth.pro.ui.LensEffect.Anamorphic -> 0.82f
             }
             // Cap the top end so strong blur still reads like lens defocus instead of a smeared filter.
             val maxRadius = (max(width, height) * 0.021f * blurScale * effectRadiusScale).coerceIn(0f, 118f)
             bokehShader.setFloatUniform("maxBlurRadius", maxRadius)
             
             val effectTypeInt = when (lensEffect) {
-                com.realdepthphoto.ui.LensEffect.Classic -> 0
-                com.realdepthphoto.ui.LensEffect.Creamy -> 1
-                com.realdepthphoto.ui.LensEffect.Bubble -> 2
-                com.realdepthphoto.ui.LensEffect.Bloom -> 3
-                com.realdepthphoto.ui.LensEffect.Star -> 4
-                com.realdepthphoto.ui.LensEffect.Hexagon -> 5
-                com.realdepthphoto.ui.LensEffect.Anamorphic -> 6
+                com.cinedepth.pro.ui.LensEffect.Classic -> 0
+                com.cinedepth.pro.ui.LensEffect.Creamy -> 1
+                com.cinedepth.pro.ui.LensEffect.Bubble -> 2
+                com.cinedepth.pro.ui.LensEffect.Bloom -> 3
+                com.cinedepth.pro.ui.LensEffect.Star -> 4
+                com.cinedepth.pro.ui.LensEffect.Hexagon -> 5
+                com.cinedepth.pro.ui.LensEffect.Anamorphic -> 6
             }
             bokehShader.setIntUniform("lensEffectType", effectTypeInt)
             
@@ -890,7 +890,7 @@ object DepthBlurEngine {
                         destExif.setAttribute(tag, value)
                     }
                 }
-                destExif.setAttribute(ExifInterface.TAG_SOFTWARE, "RealDepth Photo")
+                destExif.setAttribute(ExifInterface.TAG_SOFTWARE, "CineDepth Pro")
                 destExif.saveAttributes()
             }
         } catch (_: Exception) {
@@ -900,12 +900,12 @@ object DepthBlurEngine {
 
     private suspend fun saveBitmapToGallery(context: Context, bitmap: Bitmap): Uri =
         withContext(Dispatchers.IO) {
-            val filename = "RealDepth_${System.currentTimeMillis()}.jpg"
+            val filename = "CineDepth_${System.currentTimeMillis()}.jpg"
             val contentValues = ContentValues().apply {
                 put(MediaStore.MediaColumns.DISPLAY_NAME, filename)
                 put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    put(MediaStore.MediaColumns.RELATIVE_PATH, "DCIM/RealDepth")
+                    put(MediaStore.MediaColumns.RELATIVE_PATH, "DCIM/CineDepth")
                     put(MediaStore.MediaColumns.IS_PENDING, 1)
                 }
             }

@@ -1,10 +1,10 @@
-# Real Depth Photo: GPU-Accelerated Computational Photography
+# CineDepth Pro: Z-Depth Computational Photography Engine
 
 [![Android SDK](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com/)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![ML: SOTA](https://img.shields.io/badge/ML-Depth--Anything--V2-blue.svg)](https://github.com/DepthAnything/Depth-Anything-V2)
 
-**Real Depth Photo** is a state-of-the-art computational photography engine that brings physically-accurate, professional-grade lens simulations to mobile devices. By combining **SOTA Machine Learning** with **GPU-accelerated AGSL shaders**, it transforms standard smartphone images into high-end cinematic captures with realistic optical artifacts.
+**CineDepth Pro** is a state-of-the-art computational photography engine that brings physically-accurate, professional-grade lens simulations to mobile devices. By combining **SOTA Machine Learning** with **GPU-accelerated AGSL shaders**, it transforms standard smartphone images into high-end cinematic captures with realistic optical artifacts.
 
 ---
 
@@ -83,7 +83,7 @@ To maintain 60fps while processing 12MP images, the app instruments the entire r
 *   **Memory Pressure:** Monitors JVM/Native heap to prevent OOM errors during high-res 4K exports.
 
 ### 3. Metadata Preservation logic
-RealDepth ensures that the resulting photo isn't just a "pretty image" but a "real photo" by copying the original EXIF block and stamping **RealDepth Photo** as the software tag, maintaining the photographic provenance of the file.
+CineDepth ensures that the resulting photo isn't just a "pretty image" but a "real photo" by copying the original EXIF block and stamping **CineDepth Pro** as the software tag, maintaining the photographic provenance of the file.
 
 ---
 

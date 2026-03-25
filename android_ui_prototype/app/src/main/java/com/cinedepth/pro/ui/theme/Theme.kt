@@ -1,4 +1,4 @@
-package com.realdepthphoto.ui.theme
+package com.cinedepth.pro.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -123,7 +123,7 @@ private val AppTypography = Typography(
 )
 
 @Composable
-fun RealDepthPhotoTheme(
+fun CineDepthTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     dynamicColor: Boolean = false,
     content: @Composable () -> Unit

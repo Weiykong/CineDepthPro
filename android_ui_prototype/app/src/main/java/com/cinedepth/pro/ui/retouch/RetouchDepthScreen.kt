@@ -1,4 +1,4 @@
-package com.realdepthphoto.ui.retouch
+package com.cinedepth.pro.ui.retouch
 
 import android.graphics.Bitmap
 import android.net.Uri
@@ -76,8 +76,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.realdepthphoto.ui.BlurPreviewParams
-import com.realdepthphoto.ui.blur.DepthBlurEngine
+import com.cinedepth.pro.ui.BlurPreviewParams
+import com.cinedepth.pro.ui.blur.DepthBlurEngine
 
 private val AccentAmber = Color(0xFFFFC145)
 

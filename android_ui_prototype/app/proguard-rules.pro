@@ -24,11 +24,11 @@
 -dontwarn androidx.compose.**
 
 # Keep data classes used for state
--keep class com.realdepthphoto.ui.BlurPreviewParams { *; }
--keep class com.realdepthphoto.ui.blur.DepthBlurRenderOutput { *; }
--keep class com.realdepthphoto.ui.blur.DepthBlurExportResult$* { *; }
--keep class com.realdepthphoto.ui.retouch.RetouchDepthUiState { *; }
--keep class com.realdepthphoto.ui.retouch.Stroke { *; }
+-keep class com.cinedepth.pro.ui.BlurPreviewParams { *; }
+-keep class com.cinedepth.pro.ui.blur.DepthBlurRenderOutput { *; }
+-keep class com.cinedepth.pro.ui.blur.DepthBlurExportResult$* { *; }
+-keep class com.cinedepth.pro.ui.retouch.RetouchDepthUiState { *; }
+-keep class com.cinedepth.pro.ui.retouch.Stroke { *; }
 
 # General: don't obfuscate for easier crash debugging
 -dontobfuscate

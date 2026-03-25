@@ -13,11 +13,11 @@ Included:
 
 - `settings.gradle.kts`
 - `build.gradle.kts`
-- `app/src/main/java/com/realdepthphoto/MainActivity.kt`
-- `app/src/main/java/com/realdepthphoto/ui/retouch/RetouchDepthScreen.kt`
-- `app/src/main/java/com/realdepthphoto/ui/retouch/RetouchDepthUiState.kt`
-- `app/src/main/java/com/realdepthphoto/ui/retouch/RetouchDepthViewModel.kt`
-- `app/src/main/java/com/realdepthphoto/ui/theme/Theme.kt`
+- `app/src/main/java/com/cinedepth/pro/MainActivity.kt`
+- `app/src/main/java/com/cinedepth/pro/ui/retouch/RetouchDepthScreen.kt`
+- `app/src/main/java/com/cinedepth/pro/ui/retouch/RetouchDepthUiState.kt`
+- `app/src/main/java/com/cinedepth/pro/ui/retouch/RetouchDepthViewModel.kt`
+- `app/src/main/java/com/cinedepth/pro/ui/theme/Theme.kt`
 - `app/src/main/AndroidManifest.xml`
 - `app/build.gradle.kts`
 
