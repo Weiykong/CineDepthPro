@@ -18,9 +18,9 @@
 > *Example showing a complex outdoor scene with multi-layered depth and realistic bokeh falloff.*
 
 ### Retouching Workflow (Smart Selection & Edge Refinement)
-| Transition Mask | Edge Expansion | Refined Depth (Lena) |
+| Transition Mask | Edge Expansion | Retouched Depth |
 |:---:|:---:|:---:|
-| ![Transition](docs/assets/sample1_transition.jpg) | ![Edge Expand](docs/assets/sample1_edge_expand.jpg) | ![Lena](docs/assets/sample1_depthmap_retouched.jpg.jpg) |
+| ![Transition](docs/assets/sample1_transition.jpg) | ![Edge Expand](docs/assets/sample1_edge_expand.jpg) | ![Lena](docs/assets/sample1_depthmap_retouched.jpg) |
 
 ---
 
