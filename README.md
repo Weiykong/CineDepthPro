@@ -107,4 +107,4 @@ This project is part of a professional engineering showcase. While I am not curr
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
 ---
-*Created by [Your Name/GitHub Handle] — Senior Mobile & CV Engineer Showcase.*
+*Created by [Weiyuan Kong/GitHub Handle] — Senior Mobile & CV Engineer Showcase.*
